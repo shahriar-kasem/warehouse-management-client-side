@@ -3,6 +3,7 @@ import Home from './components/pages/Home/Home/Home';
 import Header from './components/shared/Header/Header';
 import { Route, Routes } from 'react-router-dom';
 import NotFound from './components/shared/NotFound/NotFound';
+import Inventory from './components/pages/Inventory/Inventory';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/inventory' element={<Home></Home>}></Route>
+        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
