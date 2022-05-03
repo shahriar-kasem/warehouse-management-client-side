@@ -9,7 +9,7 @@ const Navbar = () => {
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
-                            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+                            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white hover:text-black"
                             to="#pablo"
                         >
                             Warehouse Management
@@ -31,7 +31,7 @@ const Navbar = () => {
                         <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
                                     to="#pablo"
                                 >
                                     Home
@@ -39,7 +39,7 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
                                     to="#pablo"
                                 >
                                     Inventory
@@ -47,7 +47,7 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
                                     to="#pablo"
                                 >
                                     Manage Inventory
@@ -55,21 +55,21 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
                                     to="#pablo"
                                 >
                                     Add a new item
                                 </Link>
                             </li><li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
                                     to="#pablo"
                                 >
                                     Log in
                                 </Link>
                             </li><li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
                                     to="#pablo"
                                 >
                                     Log out
