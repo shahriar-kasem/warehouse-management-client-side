@@ -1,0 +1,21 @@
+
+.item-container img{
+    height: 300px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .item-container img{
+        height: 200px;
+        width: 100%;
+        border-radius: 20px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .item-container img{
+        height: 150px;
+        width: 100%;
+        border-radius: 20px;
+    }
+}
