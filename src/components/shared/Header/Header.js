@@ -58,21 +58,39 @@ const Header = () => {
                             <li className="nav-item">
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
-                                    to="#pablo"
+                                    to="/newitem"
                                 >
                                     Add a new item
                                 </Link>
-                            </li><li className="nav-item">
+                            </li>
+                            <li className="nav-item">
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
-                                    to="#pablo"
+                                    to="/blog"
+                                >
+                                    Blog
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
+                                    to="/about"
+                                >
+                                    About
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
+                                    to="/login"
                                 >
                                     Log in
                                 </Link>
-                            </li><li className="nav-item">
+                            </li>
+                            <li className="nav-item">
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
-                                    to="#pablo"
+                                    to="/logout"
                                 >
                                     Log out
                                 </Link>

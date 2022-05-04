@@ -6,6 +6,11 @@ import NotFound from './components/shared/NotFound/NotFound';
 import Inventory from './components/pages/Inventory/Inventory';
 import ManageInventory from './components/pages/ManageInventory/ManageInventory';
 import UpdateItem from './components/pages/UpdateItem/UpdateItem';
+import Blog from './components/pages/Blog/Blog';
+import Login from './components/shared/Login/Login';
+import Logout from './components/shared/Logout/Logout';
+import AddItem from './components/pages/AddItem/AddItem';
+import About from './components/pages/About/About';
 
 function App() {
   return (
@@ -17,7 +22,12 @@ function App() {
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
         <Route path='/inventory/:id' element={<UpdateItem></UpdateItem>}></Route>
         <Route path='/inventory/manage' element={<ManageInventory></ManageInventory>}></Route>
-        <Route></Route>
+        <Route path='/newitem' element={<AddItem></AddItem>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/logout' element={<Logout></Logout>}></Route>
+        {/* <Route path='' element={}></Route> */}
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
