@@ -6,7 +6,6 @@ const Inventory = () => {
     const [items] = useItems();
 
     return (
-
         <div className='mt-5'>
             <h2 className='text-rose-500 font-extrabold text-5xl'>Warehouse Items</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mx-5 my-5'>

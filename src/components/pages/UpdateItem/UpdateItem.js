@@ -14,7 +14,6 @@ const UpdateItem = () => {
     useEffect(() => {
         const match = items.find(item => item._id === id)
         setSelectedItem(match);
-        console.log(match)
     }, [id, items, selectedItem])
 
     return (
