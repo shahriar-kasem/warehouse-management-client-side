@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MenuIcon } from '@heroicons/react/solid'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+      };
+      
+
     const [navbarOpen, setNavbarOpen] = useState(false);
+
     return (
         <section>
             <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-rose-500">
@@ -47,7 +58,10 @@ const Header = () => {
                                     Inventory
                                 </Link>
                             </li>
-                            <li className="nav-item">
+                            {
+                                user && 
+                                <>
+                                <li className="nav-item">
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
                                     to="/inventory/manage"
@@ -63,6 +77,8 @@ const Header = () => {
                                     Add a new item
                                 </Link>
                             </li>
+                                </>
+                            }
                             <li className="nav-item">
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
@@ -79,6 +95,16 @@ const Header = () => {
                                     About
                                 </Link>
                             </li>
+                            
+                            {
+                                user ?
+                                <li className="nav-item">
+                                <a>
+                                    <button onClick={logout} className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black">
+                                        Log out
+                                        </button>
+                                </a>
+                            </li> :
                             <li className="nav-item">
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
@@ -87,13 +113,8 @@ const Header = () => {
                                     Log in
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <a>
-                                    <button className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black">
-                                        Log out
-                                        </button>
-                                </a>
-                            </li>
+                                
+                            }
                         </ul>
                     </div>
                 </div>

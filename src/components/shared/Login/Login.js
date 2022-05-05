@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -8,6 +8,11 @@ import './Login.css';
 import Loading from '../Loading/Loading';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || '/';
+
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         const email = data.email;
@@ -25,6 +30,9 @@ const Login = () => {
 
       if(loading){
           return <Loading></Loading>
+      }
+      if(user){
+        navigate(from, { replace: true });
       }
 
     return (

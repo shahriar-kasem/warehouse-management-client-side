@@ -11,6 +11,7 @@ import Login from './components/shared/Login/Login';
 import AddItem from './components/pages/AddItem/AddItem';
 import About from './components/pages/About/About';
 import SignUp from './components/shared/SignUp/SignUp';
+import RequireAuth from './components/shared/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -20,9 +21,21 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
-        <Route path='/inventory/:id' element={<UpdateItem></UpdateItem>}></Route>
-        <Route path='/inventory/manage' element={<ManageInventory></ManageInventory>}></Route>
-        <Route path='/newitem' element={<AddItem></AddItem>}></Route>
+        <Route path='/inventory/:id' element={
+          <RequireAuth>
+            <UpdateItem></UpdateItem>
+          </RequireAuth>
+        }></Route>
+        <Route path='/inventory/manage' element={
+          <RequireAuth>
+            <ManageInventory></ManageInventory>
+          </RequireAuth>
+        }></Route>
+        <Route path='/newitem' element={
+          <RequireAuth>
+            <AddItem></AddItem>
+          </RequireAuth>
+        }></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
