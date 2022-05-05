@@ -5,16 +5,58 @@ import { useNavigate, useParams } from 'react-router-dom';
 const UpdateItem = () => {
     const [selectedItem, setSelectedItem] = useState();
     const { id } = useParams();
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
     const navigate = useNavigate();
 
     useEffect(() => {
         const url = `https://powerful-journey-42037.herokuapp.com/inventory/${id}`;
         fetch(url)
+            .then(res => res.json())
+            .then(data => setSelectedItem(data))
+    }, [id])
+
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data =>{
+        const newQuantity = selectedItem.quantity + parseInt(data.quantity);
+        const newItem = { ...selectedItem, quantity: newQuantity};
+        setSelectedItem(newItem);
+
+        const url = `http://localhost:5000/inventory/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newItem)
+        })
         .then(res => res.json())
-        .then(data => setSelectedItem(data))
-    }, [id, selectedItem])
+        .then(data => {
+            console.log('Item quantity added successfully!')
+        })
+    };
+
+    const handleDeliveredItem = () => {
+        if (selectedItem.quantity < 1) {
+            alert('Selected item already delivered!')
+        }
+        else {
+            const newQuantity = selectedItem.quantity - 1;
+            const newItem = { ...selectedItem, quantity: newQuantity };
+            setSelectedItem(newItem);
+
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(newItem)
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert('Item successfully delivered')
+            })
+        }
+    }
 
     return (
         <section className='my-5'>
@@ -27,9 +69,9 @@ const UpdateItem = () => {
                 <h5 className='font-semibold text-lg pb-1 text-rose-400'>Supplier name: {selectedItem?.supplier}</h5>
                 <p><span className='text-blue-600 font-semibold'>Product details:</span> {selectedItem?.description}</p>
                 <div className='my-3'>
+                    <button onClick={handleDeliveredItem} className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mx-5'>Delivered</button>
+                    <p className='my-2 font-bold'>or</p>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                    <button className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mb-2 mx-5'>Delivered</button>
-                    <p>or</p>
                         <input className='border-4 rounded pl-2 border-blue-300' required type="number" placeholder='Add item quantity' {...register("quantity", { min: 0, max: 99 })} />
                         <br />
                         <input className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mb-2 mx-5' type="submit" value='Add Quantity' />

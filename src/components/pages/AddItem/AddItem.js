@@ -34,7 +34,7 @@ const AddItem = () => {
                 <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product img URL' {...register("url", { required: true, maxLength: 200 })} />
                 <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Supplier name' {...register("supplier", { required: true, maxLength: 100 })} />
                 <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product price' type="number" required {...register("price", { min: 1 })} />
-                <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product quantity' type="number" required {...register("quantity", { min: 1, max: 99 })} />
+                <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product quantity maximum 99!' type="number" required {...register("quantity", { min: 1, max: 99 })} />
                 <input className='mb-2 border-2 py-2 px-2 rounded bg-slate-500 text-white font-semibold hover:bg-slate-700'  type="submit" value='Add Item' />
             </form>
         </div>
