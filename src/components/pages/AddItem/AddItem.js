@@ -1,9 +1,21 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const AddItem = () => {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
     return (
-        <div>
-            <h1>Add a new item please</h1>
+        <div className='my-5'>
+            <h1 className='my-2 text-red-500 font-bold text-lg'>Add a new item</h1>
+            <form className='flex flex-col w-1/2 mx-auto' onSubmit={handleSubmit(onSubmit)}>
+                <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Name' {...register("name", { required: true, maxLength: 100 })} />
+                <textarea className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product description' {...register("description", { required: true, maxLength: 500 })} />
+                <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product img URL' {...register("url", { required: true, maxLength: 200 })} />
+                <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Supplier name' {...register("supplier", { required: true, maxLength: 100 })} />
+                <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product price' type="number" {...register("price", { min: 1 })} />
+                <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product quantity' type="number" {...register("quantity", { min: 1, max: 99 })} />
+                <input className='mb-2 border-2 py-2 px-2 rounded bg-slate-500 text-white font-semibold hover:bg-slate-700' placeholder='' type="submit" value='Add Item' />
+            </form>
         </div>
     );
 };
