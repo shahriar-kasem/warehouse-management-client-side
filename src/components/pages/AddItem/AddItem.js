@@ -12,7 +12,7 @@ const AddItem = () => {
         const quantity = data.quantity;
         const newUser = {name, description, url, supplier, price, quantity};
 
-        fetch('http://localhost:5000/inventory', {
+        fetch('https://powerful-journey-42037.herokuapp.com/inventory', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

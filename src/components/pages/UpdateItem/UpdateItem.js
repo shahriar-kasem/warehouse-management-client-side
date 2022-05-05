@@ -20,7 +20,7 @@ const UpdateItem = () => {
         const newItem = { ...selectedItem, quantity: newQuantity};
         setSelectedItem(newItem);
 
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://powerful-journey-42037.herokuapp.com/inventory/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -43,7 +43,7 @@ const UpdateItem = () => {
             const newItem = { ...selectedItem, quantity: newQuantity };
             setSelectedItem(newItem);
 
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://powerful-journey-42037.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

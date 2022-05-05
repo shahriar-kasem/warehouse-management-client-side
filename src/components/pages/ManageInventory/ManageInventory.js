@@ -8,7 +8,7 @@ const ManageInventory = () => {
     const handleDeleteItem = (id) => {
         const proceed = window.confirm('Are you sure you want to delete this item?')
         if(proceed){
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://powerful-journey-42037.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
