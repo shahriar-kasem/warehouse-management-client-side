@@ -3,7 +3,28 @@ import { useForm } from 'react-hook-form';
 
 const AddItem = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data, e) => {
+        const name = data.name;
+        const description = data.description;
+        const url = data.url;
+        const supplier = data.supplier;
+        const price = data.price;
+        const quantity = data.quantity;
+        const newUser = {name, description, url, supplier, price, quantity};
+
+        fetch('http://localhost:5000/inventory', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newUser),
+        })
+        .then(res => res.json())
+        .then(data => {
+            alert("Item added successfully! Check inventory for confirmation.");
+            e.target.reset();
+        })
+    };
     return (
         <div className='my-5 mx-2'>
             <h1 className='my-2 text-red-500 font-bold text-2xl'>Add a new item</h1>
