@@ -30,7 +30,7 @@ const UpdateItem = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log('Item quantity added successfully!')
+            alert('Item quantity added successfully!')
         })
     };
 

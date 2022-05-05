@@ -4,13 +4,34 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import useFeedback from '../../../hooks/useFeedback';
+import Loading from '../../shared/Loading/Loading';
 import Feedback from '../Feedback/Feedback';
 
 const Feedbacks = () => {
     const [feedbacks, setFeedbacks] = useFeedback();
     const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data, e) => {
+        const name = data.name;
+        const description = data.feedback;
+        const ratings = data.ratings;
+        const newFeedback = { name, description, ratings };
+        const url = `https://powerful-journey-42037.herokuapp.com/feedback`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(newFeedback),
+        })
+            .then(res => res.json())
+            .then(data => {
+                const moreFeedback = [...feedbacks, newFeedback];
+                setFeedbacks(moreFeedback);
+                alert('Thanks for your valuable feedback.')
+                e.target.reset();
+            })
+    };
 
     return (
         <div className='my-5'>
@@ -18,10 +39,13 @@ const Feedbacks = () => {
                 <h1 className='my-3 font-bold text-green-500 text-3xl'><i>What Our Clients Say About Us</i></h1>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:mx-5 lg:mx-10 mx-1'>
                     {
-                        feedbacks.map(feedback => <Feedback
-                            key={feedback._id}
-                            feedback={feedback}
-                        ></Feedback>)
+                        !feedbacks ?
+                            <Loading></Loading>
+                            :
+                            feedbacks.map(feedback => <Feedback
+                                key={feedback._id}
+                                feedback={feedback}
+                            ></Feedback>)
                     }
                 </div>
             </div>
