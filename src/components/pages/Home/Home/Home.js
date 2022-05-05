@@ -17,7 +17,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <section>
-                <h2 className='text-rose-500 font-extrabold text-5xl'>Warehouse Items</h2>
+                <h2 className='text-green-500 font-extrabold text-5xl'><i>Warehouse Items</i></h2>
                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mx-5 my-5'>
                     {
                         items.slice(1, 7).map(item => <Item
@@ -33,7 +33,7 @@ const Home = () => {
             <Services></Services>
             <section className='bg-blue-100 py-5'>
                 <div className='my-5'>
-                    <h1 className='my-3 font-bold text-rose-400 text-lg'>What Our Clients Say About US</h1>
+                    <h1 className='my-3 font-bold text-green-500 text-3xl'><i>What Our Clients Say About US</i></h1>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:mx-5 lg:mx-10 mx-1'>
                         {
                             feedbacks.slice(0,3).map(feedback => <Feedback

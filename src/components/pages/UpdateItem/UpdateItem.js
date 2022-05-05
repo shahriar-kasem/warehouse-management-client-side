@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import useItems from '../../../hooks/useItems';
 
 const UpdateItem = () => {
-    const [items] = useItems();
-    const [selectedItem, setSelectedItem] = useState({});
+    const [selectedItem, setSelectedItem] = useState();
     const { id } = useParams();
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const match = items.find(item => item._id === id)
-        setSelectedItem(match);
-    }, [id, items, selectedItem])
+        const url = `https://powerful-journey-42037.herokuapp.com/inventory/${id}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setSelectedItem(data))
+    }, [id, selectedItem])
 
     return (
         <section className='my-5'>
@@ -30,7 +30,7 @@ const UpdateItem = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                     <button className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mb-2 mx-5'>Delivered</button>
                     <p>or</p>
-                        <input className='border-4 rounded pl-2 border-blue-300' type="number" placeholder='Add item quantity' {...register("quantity", { min: 0, max: 99 })} />
+                        <input className='border-4 rounded pl-2 border-blue-300' required type="number" placeholder='Add item quantity' {...register("quantity", { min: 0, max: 99 })} />
                         <br />
                         <input className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mb-2 mx-5' type="submit" value='Add Quantity' />
                     </form>

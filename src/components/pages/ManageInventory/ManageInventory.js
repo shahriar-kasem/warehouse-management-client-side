@@ -12,7 +12,7 @@ const ManageInventory = () => {
 
     return (
         <div className='mt-5'>
-            <h2 className='text-rose-500 font-extrabold text-5xl'>Manage Warehouse Items</h2>
+            <h2 className='text-green-500 font-extrabold text-5xl'><i>Manage Warehouse Items</i></h2>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mx-5 my-5'>
             {
                 items.map(item => <Item
