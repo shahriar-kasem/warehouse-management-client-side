@@ -21,7 +21,7 @@ const Home = () => {
                         ></Item>)
                     }
                 </div>
-                <div onClick={() => navigate(`/inventory`)} className='my-5 bg-rose-400 hover:bg-rose-500 rounded mx-24'>
+                <div onClick={() => navigate(`/inventory`)} className='my-5 bg-rose-400 hover:bg-rose-500 rounded lg:mx-24 md:mx-10 mx-5'>
                     <button className=' px-5 py-1 mt-1  text-white mb-2 mx-5'>See Full Inventory</button>
                 </div>
             </section>
