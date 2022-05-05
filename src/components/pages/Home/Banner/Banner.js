@@ -9,15 +9,15 @@ const Banner = () => {
             <div className='carousel-container'>
             <Carousel>
                 <div>
-                    <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/BC4HQMY/psychotherapy-3270478-1920.jpg" />
+                    <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/fvsmXs5/banner1.png" />
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/BC4HQMY/psychotherapy-3270478-1920.jpg" />
+                    <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/XyjTjpr/banner5.png" />
                     <p className="legend">Legend 2</p>
                 </div>
                 <div>
-                    <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/BC4HQMY/psychotherapy-3270478-1920.jpg" />
+                    <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/NWqyfRD/banner3.png" />
                     <p className="legend">Legend 3</p>
                 </div>
             </Carousel>
