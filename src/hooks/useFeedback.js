@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 const useFeedback = () => {
-    const [services, setServices] = useState([]);
+    const [feedbacks, setFeedbacks] = useState([]);
 
     useEffect(() => {
         fetch(`https://powerful-journey-42037.herokuapp.com/feedback`)
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => setFeedbacks(data))
     }, []);
 
-    return [services, setServices];
+    return [feedbacks, setFeedbacks];
 }
 
 export default useFeedback;

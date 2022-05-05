@@ -12,6 +12,8 @@ import AddItem from './components/pages/AddItem/AddItem';
 import About from './components/pages/About/About';
 import SignUp from './components/shared/SignUp/SignUp';
 import RequireAuth from './components/shared/RequireAuth/RequireAuth';
+import Feedbacks from './components/pages/Feedbacks/Feedbacks';
+import ServiceDetail from './components/pages/ServiceDetail.js/ServiceDetail';
 
 function App() {
   return (
@@ -36,11 +38,12 @@ function App() {
             <AddItem></AddItem>
           </RequireAuth>
         }></Route>
+        <Route path='/service/:id' element={<ServiceDetail></ServiceDetail>}></Route>
+        <Route path='/feedback' element={<Feedbacks></Feedbacks>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
-        {/* <Route path='' element={}></Route> */}
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

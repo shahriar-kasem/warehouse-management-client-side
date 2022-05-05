@@ -37,7 +37,7 @@ const UpdateItem = () => {
                 </div>
             </div>
             <div onClick={() => navigate(`/inventory/manage`)} className='my-5 bg-rose-400 hover:bg-rose-500 rounded lg:mx-24 md:mx-10 mx-5'>
-                <button className=' px-5 py-1 mt-1  text-white mb-2 mx-5'>Manage Inventory</button>
+                <button className='px-5 py-1 mt-1  text-white mb-2 mx-5'>Manage Inventory</button>
             </div>
         </section>
     );
