@@ -3,11 +3,21 @@ import useItems from '../../../hooks/useItems';
 import Item from '../Items/Item/Item';
 
 const ManageInventory = () => {
-    const [items] = useItems();
+    const [items, setItems] = useItems();
 
     const handleDeleteItem = (id) => {
-
-        console.log(id)
+        const proceed = window.confirm('Are you sure you want to delete this item?')
+        if(proceed){
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: 'DELETE',
+            })
+            .then(res => res.json())
+            .then(data => {
+                const remaining = items.filter(item => item._id !== id);
+                setItems(remaining);
+            })
+        }
     }
 
     return (
