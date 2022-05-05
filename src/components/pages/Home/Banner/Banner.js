@@ -10,15 +10,15 @@ const Banner = () => {
             <Carousel>
                 <div>
                     <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/fvsmXs5/banner1.png" />
-                    <p className="legend">Legend 1</p>
+                    <p className="legend">Travel free of emissions</p>
                 </div>
                 <div>
                     <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/XyjTjpr/banner5.png" />
-                    <p className="legend">Legend 2</p>
+                    <p className="legend">Be a part of the engine that powers the world</p>
                 </div>
                 <div>
                     <img className='carousel-img' alt='Item pic' src="https://i.ibb.co/NWqyfRD/banner3.png" />
-                    <p className="legend">Legend 3</p>
+                    <p className="legend">Join the future of sustainable transportation</p>
                 </div>
             </Carousel>
             </div>

@@ -8,9 +8,9 @@ import ManageInventory from './components/pages/ManageInventory/ManageInventory'
 import UpdateItem from './components/pages/UpdateItem/UpdateItem';
 import Blog from './components/pages/Blog/Blog';
 import Login from './components/shared/Login/Login';
-import Logout from './components/shared/Logout/Logout';
 import AddItem from './components/pages/AddItem/AddItem';
 import About from './components/pages/About/About';
+import SignUp from './components/shared/SignUp/SignUp';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/logout' element={<Logout></Logout>}></Route>
+        <Route path='/signup' element={<SignUp></SignUp>}></Route>
         {/* <Route path='' element={}></Route> */}
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>

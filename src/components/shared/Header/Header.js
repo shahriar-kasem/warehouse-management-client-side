@@ -13,7 +13,7 @@ const Header = () => {
                             className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white hover:text-black"
                             to="/"
                         >
-                            Warehouse Management
+                           BBL Warehouse 
                         </Link>
                         <button
                             className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -88,12 +88,11 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
-                                    to="/logout"
-                                >
-                                    Log out
-                                </Link>
+                                <a>
+                                    <button className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black">
+                                        Log out
+                                        </button>
+                                </a>
                             </li>
                         </ul>
                     </div>

@@ -8,7 +8,7 @@ const Item = ({ item, handleDeleteItem}) => {
     const {description, img, name, price, quantity, supplier, _id} = item;
 
     return (
-        <section className='border-2 rounded-3xl'>
+        <section className='border-2 rounded-3xl hover:bg-green-300 hover:border-red-300'>
             <div className='item-container'>
                 <img className='p-1' src={img} alt="" />
                <div className='mx-3'>
