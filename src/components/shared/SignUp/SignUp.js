@@ -22,7 +22,6 @@ const SignUp = () => {
        }
        else{
         createUserWithEmailAndPassword(email, password)
-        console.log(password, email)
        }
     };
 
@@ -52,7 +51,7 @@ const SignUp = () => {
                 </div>
                 <div>
                     <form className='flex flex-col w-2/2 md:w-1/2 lg:w-1/2 mx-auto' onSubmit={handleSubmit(onSubmit)}>
-                        <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Your email' {...register("email", { required: true, maxLength: 200 })} />
+                        <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Your email' type='email' {...register("email", { required: true, maxLength: 200 })} />
                         <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Password' {...register("password", { required: true, maxLength: 100 })} />
                         <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Confirm password' {...register("confirmPassword", { required: true, maxLength: 100 })} />
                         <input className='mb-2 border-2 py-2 px-2 rounded bg-slate-500 text-white font-semibold hover:bg-slate-700' placeholder='' type="submit" value='Register' />
@@ -68,6 +67,9 @@ const SignUp = () => {
                 </div>
                 <div>
                     <h6 className='font-semibold'>Already registered? <Link to='/Login'><span className='text-blue-600'>Login</span></Link></h6>
+                </div>
+                <div>
+                    <h6 className='font-semibold'>Forget password? <Link to='/resetpassword'><span className='text-blue-600'>Reset password</span></Link></h6>
                 </div>
             </div>
         </div>

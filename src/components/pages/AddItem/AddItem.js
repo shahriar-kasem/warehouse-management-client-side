@@ -1,7 +1,9 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddItem = () => {
     const [user] = useAuthState(auth);
@@ -26,9 +28,8 @@ const AddItem = () => {
         })
         .then(res => res.json())
         .then(data => {
-            alert("Item added successfully! Check inventory for confirmation.");
+            toast("Item added successfully!")
             e.target.reset();
-            console.log(newUser)
         })
     };
     return (
@@ -44,6 +45,7 @@ const AddItem = () => {
                 <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Product quantity maximum 99!' type="number" required {...register("quantity", { min: 1, max: 99 })} />
                 <input className='mb-2 border-2 py-2 px-2 rounded bg-slate-500 text-white font-semibold hover:bg-slate-700' type="submit" value='Add Item' />
             </form>
+            <ToastContainer/>
         </div>
     );
 };

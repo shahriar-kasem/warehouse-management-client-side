@@ -15,6 +15,7 @@ import RequireAuth from './components/shared/RequireAuth/RequireAuth';
 import Feedbacks from './components/pages/Feedbacks/Feedbacks';
 import ServiceDetail from './components/pages/ServiceDetail.js/ServiceDetail';
 import MyItem from './components/pages/MyItem/MyItem';
+import ResetPassword from './components/shared/ResetPassword/ResetPassword';
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
             <AddItem></AddItem>
           </RequireAuth>
         }></Route>
-        <Route path='/myitem' element={
+        <Route path='/inventory/myitem' element={
           <RequireAuth>
             <MyItem></MyItem>
           </RequireAuth>
@@ -49,6 +50,7 @@ function App() {
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/resetpassword' element={<ResetPassword></ResetPassword>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>

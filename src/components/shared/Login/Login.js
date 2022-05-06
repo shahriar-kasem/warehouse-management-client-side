@@ -18,7 +18,6 @@ const Login = () => {
         const email = data.email;
         const password = data.password;
         signInWithEmailAndPassword(email,password)
-        console.log(password,email)
     };
 
     const [
@@ -47,7 +46,7 @@ const Login = () => {
                 </div>
                 <div>
                     <form className='flex flex-col w-2/2 md:w-1/2 lg:w-1/2 mx-auto' onSubmit={handleSubmit(onSubmit)}>
-                        <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Your email' {...register("email", { required: true, maxLength: 200 })} />
+                        <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Your email' type='email' {...register("email", { required: true, maxLength: 200 })} />
                         <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Password' {...register("password", { required: true, maxLength: 100 })} />
                         <input className='mb-2 border-2 py-2 px-2 rounded bg-slate-500 text-white font-semibold hover:bg-slate-700' placeholder='' type="submit" value='Login' />
                     </form>
@@ -62,6 +61,9 @@ const Login = () => {
                 </div>
                 <div>
                     <h6 className='font-semibold'>Don't have an account? <Link to='/signup'><span className='text-blue-600'>Sign Up</span></Link></h6>
+                </div>
+                <div>
+                    <h6 className='font-semibold'>Forget password? <Link to='/resetpassword'><span className='text-blue-600'>Reset password</span></Link></h6>
                 </div>
             </div>
         </div>

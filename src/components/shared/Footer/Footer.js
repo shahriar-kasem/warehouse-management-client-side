@@ -9,8 +9,8 @@ const Footer = () => {
     return (
         <footer>
             <div className='bg-emerald-400 text-white py-3 font-bold'>
-                <p className='py-1'>Contact us: unknown@gmail.com</p>
                 <p className='py-1'>Follow us on: Facebook, Twitter</p>
+                <p className='py-1'>Contact us: bblwarehouse@gmail.com</p>
                 <p className='py-1'>© All rights reserved. {finalDate}</p>
             </div>
         </footer>

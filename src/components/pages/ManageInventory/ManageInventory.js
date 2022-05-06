@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useItems from '../../../hooks/useItems';
 import Item from '../Items/Item/Item';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ManageInventory = () => {
     const [items, setItems] = useItems();
@@ -18,6 +20,7 @@ const ManageInventory = () => {
                 .then(data => {
                     const remaining = items.filter(item => item._id !== id);
                     setItems(remaining);
+                    toast('Item deleted successfully')
                 })
         }
     }
@@ -38,6 +41,7 @@ const ManageInventory = () => {
             <div onClick={() => navigate(`/newitem`)} className='my-5 bg-rose-400 hover:bg-rose-500 rounded lg:mx-24 md:mx-10 mx-5'>
                 <button className=' px-5 py-1 mt-1 font-bold text-white mb-2 mx-5'>Add new item</button>
             </div>
+            <ToastContainer/>
         </div>
     );
 };
