@@ -17,7 +17,7 @@ const UpdateItem = () => {
     }, [id])
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
+    const onSubmit = (data, e) => {
         const newQuantity = selectedItem.quantity + parseInt(data.quantity);
         const newItem = { ...selectedItem, quantity: newQuantity };
         setSelectedItem(newItem);
@@ -32,6 +32,7 @@ const UpdateItem = () => {
         })
             .then(res => res.json())
             .then(data => {
+                e.target.reset();
                 toast('Item quantity added successfully!');
             })
     };
