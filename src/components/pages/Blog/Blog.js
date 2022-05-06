@@ -37,7 +37,7 @@ const Blog = () => {
 
     return (
         <div className='my-5'>
-            <h1 className='my-2 text-blue-500 font-bold text-2xl'><i>Read our blogs</i></h1>
+            <h1 className='my-2 text-green-500 font-bold text-3xl'><i>Read our blogs</i></h1>
             <div>
                 <div>
                     {
