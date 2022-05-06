@@ -40,7 +40,7 @@ const MyItem = () => {
             <div>
                 {
                     customerItems.length === 0 ?
-                        <div><h1 className='my-3 text-red-700 text-xl'>Add some item to see here!!</h1></div>
+                        <div><h1 className='my-10 text-red-700 font-semibold text-xl'>Add some item to see here!!</h1></div>
                         :
                         <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mx-5 my-5'>
                             {
@@ -53,7 +53,7 @@ const MyItem = () => {
                         </div>
                 }
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 };
