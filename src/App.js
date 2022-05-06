@@ -14,6 +14,7 @@ import SignUp from './components/shared/SignUp/SignUp';
 import RequireAuth from './components/shared/RequireAuth/RequireAuth';
 import Feedbacks from './components/pages/Feedbacks/Feedbacks';
 import ServiceDetail from './components/pages/ServiceDetail.js/ServiceDetail';
+import MyItem from './components/pages/MyItem/MyItem';
 
 function App() {
   return (
@@ -36,6 +37,11 @@ function App() {
         <Route path='/newitem' element={
           <RequireAuth>
             <AddItem></AddItem>
+          </RequireAuth>
+        }></Route>
+        <Route path='/myitem' element={
+          <RequireAuth>
+            <MyItem></MyItem>
           </RequireAuth>
         }></Route>
         <Route path='/service/:id' element={<ServiceDetail></ServiceDetail>}></Route>

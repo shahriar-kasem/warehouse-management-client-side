@@ -77,6 +77,14 @@ const Header = () => {
                                     Add a new item
                                 </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 hover:text-black"
+                                    to="/myitem"
+                                >
+                                    My items
+                                </Link>
+                            </li>
                                 </>
                             }
                             <li className="nav-item">

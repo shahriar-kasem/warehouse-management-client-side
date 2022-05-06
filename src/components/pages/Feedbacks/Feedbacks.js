@@ -15,7 +15,8 @@ const Feedbacks = () => {
         const name = data.name;
         const description = data.feedback;
         const ratings = data.ratings;
-        const newFeedback = { name, description, ratings };
+        const email = user.email;
+        const newFeedback = { name, description, ratings, email };
         const url = `https://powerful-journey-42037.herokuapp.com/feedback`;
         fetch(url, {
             method: 'POST',

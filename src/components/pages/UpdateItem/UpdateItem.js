@@ -36,7 +36,7 @@ const UpdateItem = () => {
 
     const handleDeliveredItem = () => {
         if (selectedItem.quantity < 1) {
-            alert('Selected item already delivered!')
+            alert('Selected item already Sold Out!')
         }
         else {
             const newQuantity = selectedItem.quantity - 1;
@@ -65,7 +65,12 @@ const UpdateItem = () => {
                 <img className='my-3' src={selectedItem?.img} alt="" />
                 <h1 className='font-extrabold text-3xl text-rose-500 py-1'>{selectedItem?.name}</h1>
                 <h3 className='font-bold text-xl py-1 text-rose-400'>Price: ${selectedItem?.price}</h3>
-                <h4 className='font-semibold text-lg text-rose-400'>Quantity: {selectedItem?.quantity}</h4>
+                    {
+                        selectedItem?.quantity === 0 ?
+                            <h3 className='font-bold text-xl py-1 text-rose-400'>Sold Out</h3>
+                            :
+                            <h4 className='font-semibold text-lg text-rose-400'>Quantity: {selectedItem?.quantity}</h4>
+                    }
                 <h5 className='font-semibold text-lg pb-1 text-rose-400'>Supplier name: {selectedItem?.supplier}</h5>
                 <p><span className='text-blue-600 font-semibold'>Product details:</span> {selectedItem?.description}</p>
                 <div className='my-3'>
