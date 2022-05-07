@@ -2,7 +2,7 @@ import React from 'react';
 
 const Service = ({service, getServiceDetail}) => {
     const {_id, name, img, description} = service;
-    // console.log(service)
+
     const shortDescription = description.slice(0, 200);
     return (
         <div className='border-2 bg-blue-400 text-white rounded px-2 py-2 lg:px-5 hover:bg-orange-300'>
