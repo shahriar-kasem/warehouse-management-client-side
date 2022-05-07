@@ -17,7 +17,7 @@ const UpdateItem = () => {
     }, [id])
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data, e) => {
+    const onSubmitRestockItem = (data, e) => {
         const newQuantity = selectedItem.quantity + parseInt(data.quantity);
         const newItem = { ...selectedItem, quantity: newQuantity };
         setSelectedItem(newItem);
@@ -80,7 +80,7 @@ const UpdateItem = () => {
                     <div className='my-3'>
                         <button onClick={handleDeliveredItem} className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mx-5'>Delivered</button>
                         <p className='my-2 font-bold'>or</p>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form className='' onSubmit={handleSubmit(onSubmitRestockItem)}>
                             <input className='border-4 rounded pl-2 border-blue-300' required type="number" placeholder='Add item quantity' {...register("quantity", { min: 0, max: 99 })} />
                             <br />
                             <input className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mb-2 mx-5' type="submit" value='Restock the item' />

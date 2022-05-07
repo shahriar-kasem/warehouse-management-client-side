@@ -16,7 +16,7 @@ const ResetPassword = () => {
     const onSubmit = (data, e) => {
         const email = data.email;
         sendPasswordResetEmail(email);
-        toast('Email sent')
+        toast('Reset email sent')
         e.target.reset();
     } ;
 
@@ -31,7 +31,7 @@ const ResetPassword = () => {
             <div>
                 <h1 className='text-red-600 font-semibold text-lg'> Forget your password?</h1>
             </div>
-                <form className='flex flex-col w-2/2 md:w-1/2 lg:w-1/2 mx-auto' onSubmit={handleSubmit(onSubmit)}>
+                <form className='flex flex-col w-2/2 md:w-1/2 lg:w-1/4 mx-auto' onSubmit={handleSubmit(onSubmit)}>
                     <input className='py-1 rounded border-2 pl-1 my-2' type='email' placeholder='Enter your email' {...register("email", { required: true, maxLength: 300 })} />
                     <input className='bg-rose-400 text-white font-semibold py-1 px-2 rounded' type="submit" value='Reset password' />
                 </form>

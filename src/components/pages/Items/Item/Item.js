@@ -16,7 +16,7 @@ const Item = ({ item, handleDeleteItem }) => {
                     <h3 className='font-bold text-xl py-1 text-rose-400'>Price: ${price}</h3>
                     {
                         quantity === 0 ?
-                            <h3 className='font-bold text-xl py-1 text-rose-400'>Sold Out</h3>
+                        <h4 className='font-semibold text-lg text-rose-400'>Quantity: Sold Out</h4>
                             :
                             <h4 className='font-semibold text-lg text-rose-400'>Quantity: {quantity}</h4>
                     }

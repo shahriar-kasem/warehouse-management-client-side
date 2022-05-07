@@ -7,7 +7,7 @@ const useBlogs = () => {
         fetch( `https://powerful-journey-42037.herokuapp.com/blog`)
         .then(res => res.json())
         .then(data => setBlogs(data))
-    }, []);
+    }, [blogs]);
 
     return [blogs, setBlogs];
 

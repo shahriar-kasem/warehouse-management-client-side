@@ -2,9 +2,9 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 import useFeedback from '../../../hooks/useFeedback';
-import Loading from '../../shared/Loading/Loading';
 import Feedback from '../Feedback/Feedback';
 
 const Feedbacks = () => {
@@ -29,7 +29,7 @@ const Feedbacks = () => {
             .then(data => {
                 const moreFeedback = [...feedbacks, newFeedback];
                 setFeedbacks(moreFeedback);
-                alert('Thanks for your valuable feedback.')
+                toast('Thanks for your valuable feedback.')
                 e.target.reset();
             })
     };
@@ -40,9 +40,6 @@ const Feedbacks = () => {
                 <h1 className='my-3 font-bold text-green-500 text-3xl'><i>What Our Clients Say About Us</i></h1>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:mx-5 lg:mx-10 mx-1'>
                     {
-                        !feedbacks ?
-                            <Loading></Loading>
-                            :
                             feedbacks.map(feedback => <Feedback
                                 key={feedback._id}
                                 feedback={feedback}
@@ -66,6 +63,7 @@ const Feedbacks = () => {
                         </div>
                 }
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
