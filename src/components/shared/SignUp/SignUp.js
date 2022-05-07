@@ -2,9 +2,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../Loading/Loading';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -13,7 +15,7 @@ const SignUp = () => {
     let from = location.state?.from?.pathname || '/';
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
+    const onSubmit = async (data) => {
         const email = data.email;
         const password = data.password;
         const confirmPassword = data.confirmPassword;
@@ -21,7 +23,9 @@ const SignUp = () => {
         alert('Your password did not match! Please check your password and try again.')
        }
        else{
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password);
+        await sendEmailVerification();
+        toast('Verification email sent')    
        }
     };
 
@@ -31,6 +35,8 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [sendEmailVerification] = useSendEmailVerification(auth);
 
     if(loading){
         return <Loading></Loading>
@@ -72,6 +78,7 @@ const SignUp = () => {
                     <h6 className='font-semibold'>Forget password? <Link to='/resetpassword'><span className='text-blue-600'>Reset password</span></Link></h6>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
