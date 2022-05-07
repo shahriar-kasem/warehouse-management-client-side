@@ -24,8 +24,8 @@ const Subscribe = () => {
             })
     };
     return (
-        <div className='my-5 bg-teal-300 hover:bg-teal-400 flex flex-col py-3'>
-            <h1 className='text-white font-bold my-2 text-xl'>Subscribe for regular updates!</h1>
+        <div className='my-5 bg-teal-300 hover:bg-teal-400 flex flex-col py-3 px-2'>
+            <h1 className='text-white font-bold my-2 text-xl'><i>Subscribe for regular updates!</i></h1>
             <div>
                 <form className='flex flex-col w-2/2 md:w-1/2 lg:w-1/4 mx-auto' onSubmit={handleSubmit(onSubmit)}>
                     <input className='border-2 rounded pl-2 py-1' placeholder='Enter your email' {...register("email", { required: true, maxLength: 20 })} />

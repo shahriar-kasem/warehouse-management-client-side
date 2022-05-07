@@ -4,7 +4,7 @@ const Feedback = ({ feedback }) => {
     const { name, description, ratings } = feedback;
     // console.log(feedback);
     return (
-        <div className='border-2 border-blue-300 rounded px-2'>
+        <div className='border-2 border-blue-300 rounded px-2 mx-2'>
             <div>
                 <h1 className='font-extrabold text-blue-600'>Customer name: {name}</h1>
                 <h4><span className='font-bold'><span className='text-orange-500'>{name}</span> says:</span> {description}</h4>
