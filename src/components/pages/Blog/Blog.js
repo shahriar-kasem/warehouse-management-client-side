@@ -42,7 +42,7 @@ const Blog = () => {
                 <div>
                     {
                         blogs.length === 0 &&
-                        <div><h1 className='my-3 text-red-700 text-xl'>Add some item to see here!!</h1></div>
+                        <div><h1 className='my-3 text-red-700 text-xl'>No blogs available!</h1></div>
                     }
                 </div>
                 <div>

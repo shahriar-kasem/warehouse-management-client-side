@@ -83,7 +83,7 @@ const UpdateItem = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input className='border-4 rounded pl-2 border-blue-300' required type="number" placeholder='Add item quantity' {...register("quantity", { min: 0, max: 99 })} />
                             <br />
-                            <input className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mb-2 mx-5' type="submit" value='Add Quantity' />
+                            <input className='bg-rose-400 px-5 py-1 mt-1 rounded hover:bg-rose-500 text-white mb-2 mx-5' type="submit" value='Restock the item' />
                         </form>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import Footer from '../../../shared/Footer/Footer';
 import Feedback from '../../Feedback/Feedback';
 import Item from '../../Items/Item/Item';
 import Services from '../../Services/Services';
+import Subscribe from '../../Subscribe/Subscribe';
 import Banner from '../Banner/Banner';
 
 const Home = () => {
@@ -47,6 +48,7 @@ const Home = () => {
                 </div>
                 </div>
             </section>
+            <Subscribe></Subscribe>
             <Footer></Footer>
         </div>
     );
