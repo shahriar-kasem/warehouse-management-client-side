@@ -10,11 +10,9 @@ const MyItem = () => {
     const [user] = useAuthState(auth);
     const [items, setItems] = useItems();
     const [customerItems, setCustomerItems] = useState([]);
-    console.log(customerItems.length)
 
     useEffect(() => {
         const match = items.filter(item => item.email === user.email);
-        console.log(match)
         setCustomerItems(match);
     }, [user, items])
 
