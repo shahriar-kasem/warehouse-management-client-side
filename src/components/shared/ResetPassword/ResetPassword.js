@@ -16,7 +16,7 @@ const ResetPassword = () => {
     const onSubmit = (data, e) => {
         const email = data.email;
         sendPasswordResetEmail(email);
-        toast('Reset email sent')
+        toast('Email sent! Check your inbox.')
         e.target.reset();
     } ;
 

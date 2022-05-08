@@ -23,7 +23,7 @@ const RequireAuth = ({ children }) => {
           return <div>
               <div className='my-5'>
               <h1 className='text-red-600 text-2xl font-semibold my-2'>Your email isn't verified!</h1>
-              <h3 className='text-red-500 text-lg font-semibold my-2'>Please verify your email</h3>
+              <h3 className='text-red-500 text-lg font-semibold my-2'>Please verify your email to continue</h3>
               <button onClick={async () => {
                   await sendEmailVerification();
                   toast('Verification email sent')
