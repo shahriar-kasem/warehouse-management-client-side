@@ -20,7 +20,9 @@ const ManageInventory = () => {
                 .then(data => {
                     const remaining = items.filter(item => item._id !== id);
                     setItems(remaining);
-                    toast('Item deleted successfully')
+                    if(data.deletedCount === 1){
+                        toast('Item deleted successfully')
+                    }
                 })
         }
     }

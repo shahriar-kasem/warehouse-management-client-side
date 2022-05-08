@@ -29,7 +29,9 @@ const MyItem = () => {
                 .then(data => {
                     const remaining = customerItems.filter(item => item._id !== id);
                     setCustomerItems(remaining);
-                    toast('Item deleted successfully')
+                    if(data.deletedCount === 1){
+                        toast('Item deleted successfully')
+                    }
                 })
         }
     }
