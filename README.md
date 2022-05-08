@@ -20,5 +20,7 @@ Click here: https://github.com/ProgrammingHeroWC4/warehouse-management-server-si
 * React-hook-form
 * React-responsive-carousel
 * React-toastify
+* Axios
+* JWT
 * Heroicons
 * FontAwsome

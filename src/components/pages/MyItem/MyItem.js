@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import useItems from '../../../hooks/useItems';
 import Item from '../Items/Item/Item';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MyItem = () => {
     const [user] = useAuthState(auth);
-    const [items, setItems] = useItems();
     const [customerItems, setCustomerItems] = useState([]);
 
     useEffect(() => {
-        const match = items.filter(item => item.email === user.email);
-        setCustomerItems(match);
-    }, [user, items])
+        const email = user.email;
+
+        const url = `https://powerful-journey-42037.herokuapp.com/myitem?email=${email}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setCustomerItems(data))
+    },[])
 
     const handleDeleteItem = (id) => {
         const proceed = window.confirm('Are you sure you want to delete this item?')
@@ -25,8 +27,8 @@ const MyItem = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    const remaining = items.filter(item => item._id !== id);
-                    setItems(remaining);
+                    const remaining = customerItems.filter(item => item._id !== id);
+                    setCustomerItems(remaining);
                     toast('Item deleted successfully')
                 })
         }
