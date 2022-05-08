@@ -4,37 +4,19 @@ import auth from '../../../firebase.init';
 import Item from '../Items/Item/Item';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
 
 const MyItem = () => {
     const [user] = useAuthState(auth);
     const [customerItems, setCustomerItems] = useState([]);
-    const navigate = useNavigate(auth);
 
     useEffect(() => {
         const email = user.email;
 
-        const getCustomerItems = async () => {
-            const url = `https://powerful-journey-42037.herokuapp.com/myitem?email=${email}`;
-            try {
-                const { data } = await axios.get(url, {
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                    }
-                })
-                setCustomerItems(data)
-            }
-            catch (error) {
-                if (error.response.status === 401 || error.response.status === 403) {
-                    signOut(auth);
-                    navigate('/login');
-                }
-            }
-        }
-        getCustomerItems();
-    }, [])
+        const url = `https://powerful-journey-42037.herokuapp.com/myitem?email=${email}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setCustomerItems(data))
+    },[])
 
     const handleDeleteItem = (id) => {
         const proceed = window.confirm('Are you sure you want to delete this item?')
@@ -47,9 +29,10 @@ const MyItem = () => {
                 .then(data => {
                     const remaining = customerItems.filter(item => item._id !== id);
                     setCustomerItems(remaining);
-                    if (data.deletedCount === 1) {
+                    if(data.deletedCount === 1){
                         toast('Item deleted successfully')
                     }
+                    console.log(data.deletedCount)
                 })
         }
     }

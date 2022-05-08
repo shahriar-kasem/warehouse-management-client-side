@@ -6,7 +6,6 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css';
 import Loading from '../Loading/Loading';
-import axios from 'axios';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -15,14 +14,10 @@ const Login = () => {
     let from = location.state?.from?.pathname || '/';
 
     const { register, handleSubmit } = useForm();
-    const onSubmitLogin = async(data) => {
+    const onSubmitLogin = data => {
         const email = data.email;
         const password = data.password;
-        await signInWithEmailAndPassword(email,password)
-        const token = await axios.post('https://powerful-journey-42037.herokuapp.com/login', {email});
-        const tokenData = token.data;
-        localStorage.setItem('accessToken', tokenData.accessToken);
-        navigate(from, { replace: true });
+        signInWithEmailAndPassword(email,password)
     };
 
     const [
@@ -36,7 +31,7 @@ const Login = () => {
           return <Loading></Loading>
       }
       if(user){
-        
+        navigate(from, { replace: true });
       }
 
     return (
