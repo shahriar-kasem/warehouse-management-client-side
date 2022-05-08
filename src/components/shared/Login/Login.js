@@ -6,6 +6,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './Login.css';
 import Loading from '../Loading/Loading';
+import axios from 'axios';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -14,10 +15,14 @@ const Login = () => {
     let from = location.state?.from?.pathname || '/';
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
+    const onSubmitLogin = async(data) => {
         const email = data.email;
         const password = data.password;
-        signInWithEmailAndPassword(email,password)
+        await signInWithEmailAndPassword(email,password)
+        const token = await axios.post('https://powerful-journey-42037.herokuapp.com/login', {email});
+        const tokenData = token.data;
+        localStorage.setItem('accessToken', tokenData.accessToken);
+        navigate(from, { replace: true });
     };
 
     const [
@@ -31,7 +36,7 @@ const Login = () => {
           return <Loading></Loading>
       }
       if(user){
-        navigate(from, { replace: true });
+        
       }
 
     return (
@@ -45,7 +50,7 @@ const Login = () => {
                     }
                 </div>
                 <div>
-                    <form className='flex flex-col w-2/2 md:w-1/2 lg:w-1/2 mx-auto' onSubmit={handleSubmit(onSubmit)}>
+                    <form className='flex flex-col w-2/2 md:w-1/2 lg:w-1/2 mx-auto' onSubmit={handleSubmit(onSubmitLogin)}>
                         <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Your email' type='email' {...register("email", { required: true, maxLength: 200 })} />
                         <input className='mb-2 border-2 border-blue-300 py-2 px-2 rounded' placeholder='Password' {...register("password", { required: true, maxLength: 100 })} />
                         <input className='mb-2 border-2 py-2 px-2 rounded bg-slate-500 text-white font-semibold hover:bg-slate-700' placeholder='' type="submit" value='Login' />
